@@ -39,7 +39,7 @@ class ContestLevel extends Model
             ->where('end_date', '>=', $date);
     }
 
-    public static function checkIsStartedByContest(int $contestId, Carbon $date): self
+    public static function checkIsStartedByContest(int $contestId, Carbon $date): bool
     {
         return self::isStarted($date)
             ->where('contest_id', $contestId)
