@@ -19,7 +19,7 @@ class ParticipantController extends Controller
     public function index(): AnonymousResourceCollection
     {
         return ParticipantResource::collection(
-            Participant::all()
+            Participant::filter(request('sort'))->get()
         );
     }
 

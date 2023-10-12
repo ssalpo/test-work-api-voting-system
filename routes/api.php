@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContestController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,5 @@ Route::apiResource('users', UserController::class)->only(['index', 'store']);
 Route::apiResource('participants', ParticipantController::class)->only(['index', 'store']);
 
 Route::apiResource('contests', ContestController::class)->only(['index', 'store']);
+
+Route::apiResource('votes', VoteController::class)->only(['index', 'store']);

@@ -32,4 +32,24 @@ class ContestLevel extends Model
     {
         return $this->hasMany(Participant::class);
     }
+
+    public function scopeIsStarted($q, Carbon $date): void
+    {
+        $q->where('start_date', '<=', $date)
+            ->where('end_date', '>=', $date);
+    }
+
+    public static function checkIsStartedByContest(int $contestId, Carbon $date): self
+    {
+        return self::isStarted($date)
+            ->where('contest_id', $contestId)
+            ->exists();
+    }
+
+    public static function getStartedByContestId(int $contestId, Carbon $date): self
+    {
+        return self::isStarted($date)
+            ->where('contest_id', $contestId)
+            ->firstOrFail();
+    }
 }
