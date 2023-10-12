@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
-    public const AVATARS_PATH = 'public/users/avatars';
+    public const AVATARS_PATH = 'public/avatars/participant';
 
     public function register(array $data)
     {
