@@ -10,7 +10,14 @@ class Contest extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['contest'];
+    public const MAX_LEVEL = 2;
+
+    public const VOTING_CONDITION_BY_LEVEL = [
+        1 => 2,
+        2 => 3
+    ];
+
+    protected $fillable = ['name'];
 
     public function contestLevels(): HasMany
     {
